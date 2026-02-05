@@ -1,59 +1,108 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Laboratory Assignment
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A complete Laravel application featuring authentication, database seeding, and a futuristic dashboard interface.
 
-## About Laravel
+## Setup Instructions
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Prerequisites
+- PHP 8.1 or higher
+- Composer
+- Node.js and npm
+- SQLite (or MySQL/PostgreSQL)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Installation Steps
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. **Clone or navigate to the project directory:**
+   ```bash
+   cd laravel_app
+   ```
 
-## Learning Laravel
+2. **Install PHP dependencies:**
+   ```bash
+   composer install
+   ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+3. **Copy the environment file and configure:**
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Or verify the `.env` file has the correct database settings:
+   ```
+   DB_CONNECTION=sqlite
+   DB_DATABASE=C:\path\to\your\laravel_app\database\database.sqlite
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. **Generate application key:**
+   ```bash
+   php artisan key:generate
+   ```
 
-## Laravel Sponsors
+5. **Install Node.js dependencies:**
+   ```bash
+   npm install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+6. **Build frontend assets:**
+   ```bash
+   npm run build
+   ```
 
-### Premium Partners
+7. **Run database migrations and seed:**
+   ```bash
+   php artisan migrate --force
+   php artisan db:seed
+   ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+8. **Start the development server:**
+   ```bash
+   php artisan serve
+   ```
 
-## Contributing
+9. **Open your browser and navigate to:**
+   ```
+   http://127.0.0.1:8000
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Sample Login Credentials
 
-## Code of Conduct
+The application comes with 100 seeded users, including 5 users with known credentials:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Primary Test Accounts:
 
-## Security Vulnerabilities
+| Username   | Password      | Email |
+|------------|---------------|-------|
+| testuser1  | password123   | testuser1@example.com |
+| testuser2  | password123   | testuser2@example.com |
+| testuser3  | password123   | testuser3@example.com |
+| testuser4  | password123   | testuser4@example.com |
+| testuser5  | password123   | testuser5@example.com |
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Features
 
-## License
+- **Authentication System**: Complete login/register functionality
+- **Database Seeding**: 100 users with realistic dummy data
+- **Futuristic UI**: Dark theme with neon green accents
+- **Responsive Design**: Works on desktop and mobile devices
+- **Protected Dashboard**: Secure access after authentication
+- **Profile Management**: Edit account information and security settings
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Application Structure
+
+- **Welcome Page**: `/` - Public landing page with futuristic design
+- **Login Page**: `/login` - Secure login with username/email support
+- **Registration Page**: `/register` - User registration with validation
+- **Dashboard**: `/dashboard` - Protected area after login
+- **Profile**: `/profile` - Account management page
+
+## Additional Commands
+
+- **Clear caches**: `php artisan cache:clear` and `php artisan route:clear`
+- **Re-seed database**: `php artisan db:seed --class=UserSeeder`
+- **View all routes**: `php artisan route:list`
+
+## Troubleshooting
+
+- If you encounter issues with the database, try running `php artisan migrate:fresh --seed`
+- For asset loading issues, run `npm run build` again
+- Make sure the `storage` and `bootstrap/cache` directories are writable
